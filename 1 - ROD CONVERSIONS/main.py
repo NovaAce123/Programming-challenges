@@ -1,7 +1,5 @@
 # PROJECT 1
 
-rods=float(input("Input rods: "))
-
 def convertmetres(rod):
     metres = rod * 5.0292
     return metres
@@ -22,7 +20,9 @@ def converttime(miles):
     time = (miles/(3.1/60))
     return time
 
-def conversion(rods):
+def conversion():
+    rods=float(input("Input rods: "))
+
     print("Conversions: ")
 
     metres = convertmetres(rods)
@@ -42,4 +42,4 @@ def conversion(rods):
 
 
 if __name__ == "__main__":
-    conversion(rods)
+    conversion()
