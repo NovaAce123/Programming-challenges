@@ -5,19 +5,19 @@ from main import *
 
 class MyFirstTests(unittest.TestCase):
 
-    def test_hello(self):
+    def test_metres(self):
         self.assertEqual(convertmetres(10), 50.292)
 
-    def test_hello(self):
+    def test_furlong(self):
         self.assertEqual(convertfurlong(10), 0.25)
 
-    def test_hello(self):
+    def test_miles(self):
         self.assertEqual(convertmiles(50.292), 0.03125007767159208)
 
-    def test_hello(self):
+    def test_feet(self):
         self.assertEqual(convertfeet(50.292), 165.0)
 
-    def test_hello(self):
+    def test_time(self):
         self.assertEqual(converttime(0.03125007767159208), 0.6048402129985564)
 
     #def test_custom_num_list(self):
