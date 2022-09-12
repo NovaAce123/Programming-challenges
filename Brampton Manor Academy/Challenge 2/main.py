@@ -10,24 +10,18 @@ def table():
     9.5         1.1220184543019653E+19  2681688466.3048882""")
 
     value = float(input("Please enter a Richter scale value: "))
+    tnt(joules(value))
+
+def joules(value):
     print(f"Richter value: {value}")
     joules = 10**((1.5*value)+4.8)
     print(f"Equivalence in joules: {joules}")
-
-    tnt(joules)
-
-
-
-def joules():
-    value = float(input("Please enter a Richter scale value: "))
-    print(f"Richter value: {value}")
-    joules = 10**((1.5*value)+4.8)
-    print(f"Equivalence in joules: {joules}")
-
-    tnt(joules)
+    return joules
 
 def tnt(energy):
     tons = energy / 4.184*(10**9)
     print(f"Equivalence in tons of TNT: {tons}")
+    return tons
 
-table()
+if __name__ == '__main__':
+    table()
