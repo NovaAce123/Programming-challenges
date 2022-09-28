@@ -14,6 +14,7 @@ def pos():
     html = scrape(url)
     i = 0
     x = 0
+    templist = []
 
     while x < 10:
         open_tr = html.find('<tr>', i)
@@ -23,15 +24,19 @@ def pos():
         lookingfor = '"position">'
         pos_start = newstring.find(lookingfor)
         pos_end = newstring.find('</', pos_start)
-        print(newstring[pos_start + len(lookingfor):pos_end])
+        finalString = newstring[pos_start + len(lookingfor):pos_end]
+        templist.append(finalString)
 
         i = close_tr
         x += 1
+
+    return templist
 
 def artist():
     html = scrape(url)
     i = 0
     x = 0
+    templist = []
 
     while x < 10:
         open_tr = html.find('<tr>', i)
@@ -44,15 +49,18 @@ def artist():
         updatedString = newstring[pos_start + len(lookingfor):pos_end]
         y = updatedString.find('/">')
         refinedstring = updatedString[y+3:]
-        print(refinedstring)
+        templist.append(refinedstring)
 
         i = close_tr
         x += 1
+    
+    return templist
 
 def title():
     html = scrape(url)
     i = 0
     x = 0
+    templist = []
 
     while x < 10:
         open_tr = html.find('<tr>', i)
@@ -65,10 +73,12 @@ def title():
         updatedString = newstring[pos_start + len(lookingfor):pos_end]
         y = updatedString.find('/">')
         refinedstring = updatedString[y+3:]
-        print(refinedstring)
+        templist.append(refinedstring)
 
         i = close_tr
         x += 1
+
+    return templist
 
 
 def format():
@@ -76,8 +86,13 @@ def format():
     a = pos()
     b = artist()
     c = title()
+    print(f"{'Position':15}{'Name':30}{'Artist':30}")
+    print("------------------------------------------------------------------")
+    for x in range (0,10):
+        print(f'{a[x]:5}{c[x]:^30}{b[x]:>30}')
 
-    print(f"{a}{b:<30}{c}")
+    #print(f"{a}{b:<30}{c}")
 
 if __name__ == "__main__":
     format()
+    
