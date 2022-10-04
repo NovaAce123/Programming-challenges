@@ -21,7 +21,7 @@ def read_html(path):
         htmlFile = file.read()
         return htmlFile
 
-def process(csv, html):
+def transfer(csv, html):
     indexNameList = [[0,'link'], [1, 'initials'], [2, 'name']]
     for currentItem in indexNameList:
         for x in range (5):
@@ -29,7 +29,7 @@ def process(csv, html):
             html = html.replace (Name, csv[x][currentItem[0]])
     return html
 
-def write_html(path, html):
+def write(path, html):
     with open (path, 'w') as htmlfile:
         htmlfile.write(html)
 
